@@ -21,7 +21,7 @@ int main() {
     async_t data;
     data.function = &add;
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 1000; i++) {
 
         add_args argument = { .a = i, .b = i+1 };
         data.async_args_t = (void*)&argument;
@@ -29,6 +29,7 @@ int main() {
         printf("I = %d\n", i);
 
         async(data);
+        add(data.async_args_t);
 
     }
 
